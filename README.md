@@ -25,3 +25,16 @@ The external functions accessible from the dll are
 
   ## Regarding Implimentation
   Please see lines 16-24 in the [example code](example/BlobFinding.py) for the necessary steps to implement this code, or refer to the ctypes library documentation.
+  ```py
+  import ctypes
+
+  # Load the DLL
+  clibrary = ct.CDLL('./hit_finding.dll')
+  # Define args and return types of findHitsDOG function
+  findHitsDOG = clibrary.findHitsDOG
+  findHitsDOG.argtypes = [ct.c_char_p, ct.c_float, ct.c_float, ct.c_float]
+  findHitsDOG.restype = ct.POINTER(ct.POINTER(ct.c_int))
+  # Define args and return types of freeArray function
+  freeArray = clibrary.freeArray
+  freeArray.argtypes = [ct.POINTER(ct.POINTER(ct.c_int)), ct.c_int]
+  ```
