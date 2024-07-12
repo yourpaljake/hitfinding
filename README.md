@@ -38,3 +38,8 @@ The external functions accessible from the dll are
   freeArray = clibrary.freeArray
   freeArray.argtypes = [ct.POINTER(ct.POINTER(ct.c_int)), ct.c_int]
   ```
+
+  To recompile the dll, run
+  ```bash
+  gcc -shared -o hit_finding.dll hit_finding.cpp
+  ```
