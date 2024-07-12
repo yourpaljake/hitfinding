@@ -13,8 +13,8 @@ The external functions accessible from the dll are
   The kernel size for the Gaussian blur is 5, which can be modified via the define statement at the top of the file.
   
   *Notes on file format*: the file is assumed to be formatted as follows:
-  1) Numbers are assumed to be big endian 32-bit integers
-  2) Data is expected to be formatted as "NUM_ROWS NUM_COLS DATA_PT1 DATA_PT2 ..." (note spaces were added for readability and are not assumed to be present in the file format)
+  * Numbers are assumed to be big endian 32-bit integers
+  * Data is expected to be formatted as "NUM_ROWS NUM_COLS DATA_PT1 DATA_PT2 ..." (note spaces were added for readability and are not assumed to be present in the file format)
 
 - freeArray
   This function takes in a 2D array and the number of rows.
