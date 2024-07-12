@@ -26,7 +26,7 @@ The external functions accessible from the dll are
   ## Regarding Implimentation
   Please see lines 16-24 in the [example code](example/BlobFinding.py) for the necessary steps to implement this code, or refer to the ctypes library documentation.
   ```py
-  import ctypes
+  import ctypes as ct
 
   # Load the DLL
   clibrary = ct.CDLL('./hit_finding.dll')
