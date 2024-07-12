@@ -41,5 +41,5 @@ The external functions accessible from the dll are
 
   To recompile the dll, run
   ```bash
-  gcc -shared -o hit_finding.dll hit_finding.cpp
+  g++ -shared -o hit_finding.dll hit_finding.cpp
   ```
