@@ -5,6 +5,9 @@
 // Gaussian kernel size
 #define KERNEL_SIZE 5
 
+// Intensity threshold for noise filtering
+#define INTENSITY_THRESHOLD 5
+
 /**
  * A helper function that reverses the byte order (endianness) of an integer
  * stored in a character buffer.
@@ -160,10 +163,10 @@ void detectBlobs(float** dog, int** output, float threshold, int rows, int cols)
     }
 } /* detectBlobs() */
 
-void filter(int** matrix, int rows, int cols, int intensityThreshold) {
+void filter(int** matrix, int rows, int cols) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            if (matrix[i][j] < intensityThreshold) {
+            if (matrix[i][j] < INTENSITY_THRESHOLD) {
                 matrix[i][j] = 0;
             }
         }
@@ -265,7 +268,7 @@ extern "C" {
         int cols = matrix[0][1];
         matrix = adjustMatrix(matrix);
 
-        filter(matrix, rows, cols, 5);
+        filter(matrix, rows, cols);
 
         float** dog = (float**) calloc(rows, sizeof(float*));
         for (int i = 0; i < rows; i++) {
